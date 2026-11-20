@@ -1,0 +1,1546 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>مملكة الرياضيات | الصف الثالث المتوسط – الفصل الدراسي الأول</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --purple-dark: #4a1d75;
+      --purple: #6d28d9;
+      --purple-soft: #ede9fe;
+      --pink: #ec4899;
+      --pink-dark: #be185d;
+      --pink-soft: #fce7f3;
+      --turquoise: #06b6d4;
+      --turquoise-dark: #0e7490;
+      --turquoise-soft: #cffafe;
+      --gold: #f59e0b;
+      --gold-soft: #fef3c7;
+      --bg: #fdf7ff;
+      --card: #ffffff;
+      --text: #1f1635;
+      --muted: #645980;
+      --border: #e9d8fd;
+      --success: #059669;
+      --success-soft: #d1fae5;
+      --danger: #e11d48;
+      --danger-soft: #ffe4e6;
+      --shadow: 0 12px 30px rgba(109, 40, 217, 0.08);
+      --shadow-lg: 0 20px 45px rgba(74, 29, 117, 0.14);
+      --radius: 22px;
+      --radius-sm: 14px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Cairo', 'Tajawal', sans-serif;
+      background:
+        radial-gradient(circle at 10% 10%, rgba(236, 72, 153, 0.12), transparent 36%),
+        radial-gradient(circle at 90% 15%, rgba(6, 182, 212, 0.14), transparent 38%),
+        radial-gradient(circle at 50% 85%, rgba(109, 40, 217, 0.10), transparent 45%),
+        var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* Top Header */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 60;
+      backdrop-filter: blur(14px);
+      background: rgba(255, 255, 255, 0.92);
+      border-bottom: 2px solid var(--border);
+      padding: 12px 20px;
+      box-shadow: 0 6px 24px rgba(109, 40, 217, 0.06);
+    }
+
+    .topbar-inner {
+      max-width: 1340px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+    }
+
+    .brand-badge {
+      width: 50px;
+      height: 50px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--purple), var(--pink), var(--turquoise));
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-size: 24px;
+      box-shadow: 0 8px 18px rgba(236, 72, 153, 0.28);
+      flex-shrink: 0;
+    }
+
+    .brand-title {
+      font-size: 1.22rem;
+      font-weight: 900;
+      background: linear-gradient(90deg, var(--purple-dark), var(--pink-dark), var(--turquoise-dark));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .brand-sub {
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .nav-tabs {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .nav-btn {
+      border: 1.5px solid var(--border);
+      background: #fff;
+      color: var(--text);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-family: inherit;
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-btn:hover {
+      border-color: var(--pink);
+      transform: translateY(-1px);
+      background: var(--pink-soft);
+    }
+
+    .nav-btn.active {
+      background: linear-gradient(135deg, var(--purple), var(--pink));
+      color: #fff;
+      border-color: transparent;
+      box-shadow: 0 6px 16px rgba(109, 40, 217, 0.25);
+    }
+
+    .student-pill {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, var(--purple-soft), var(--pink-soft));
+      border: 1.5px solid #e2c8ff;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    .points-chip {
+      background: linear-gradient(135deg, var(--gold), #f97316);
+      color: #fff;
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 0.8rem;
+    }
+
+    .container {
+      max-width: 1340px;
+      margin: 0 auto;
+      padding: 24px 20px 64px;
+    }
+
+    /* Hero Banner */
+    .hero {
+      background: linear-gradient(125deg, #4c1d95 0%, #9d174d 52%, #0e7490 100%);
+      color: #fff;
+      border-radius: 28px;
+      padding: 32px;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 26px;
+    }
+
+    .hero::before {
+      content: "✦ ❖ ★ ✧";
+      position: absolute;
+      left: 24px;
+      top: 16px;
+      font-size: 1.4rem;
+      opacity: 0.28;
+      letter-spacing: 8px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.6rem, 3.2vw, 2.45rem);
+      font-weight: 900;
+      line-height: 1.3;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 1rem;
+      opacity: 0.95;
+      margin-bottom: 18px;
+      max-width: 660px;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .meta-tag {
+      background: rgba(255, 255, 255, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    .hero-card {
+      background: rgba(255, 255, 255, 0.14);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      border-radius: 22px;
+      padding: 20px;
+    }
+
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .stat-box {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 16px;
+      padding: 12px;
+      text-align: center;
+    }
+
+    .stat-num {
+      font-size: 1.45rem;
+      font-weight: 900;
+      display: block;
+    }
+
+    .stat-label {
+      font-size: 0.78rem;
+      opacity: 0.9;
+    }
+
+    /* Buttons & Cards */
+    .btn {
+      border: none;
+      border-radius: 14px;
+      padding: 11px 18px;
+      font-family: inherit;
+      font-size: 0.92rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--purple), var(--pink));
+      color: #fff;
+      box-shadow: 0 8px 18px rgba(109, 40, 217, 0.24);
+    }
+
+    .btn-turquoise {
+      background: linear-gradient(135deg, var(--turquoise-dark), var(--turquoise));
+      color: #fff;
+      box-shadow: 0 8px 18px rgba(6, 182, 212, 0.24);
+    }
+
+    .btn-gold {
+      background: linear-gradient(135deg, #d97706, var(--gold));
+      color: #fff;
+    }
+
+    .btn-outline {
+      background: #fff;
+      color: var(--purple-dark);
+      border: 1.5px solid var(--border);
+    }
+
+    .btn-danger {
+      background: var(--danger);
+      color: #fff;
+    }
+
+    .btn-sm {
+      padding: 7px 13px;
+      font-size: 0.82rem;
+      border-radius: 11px;
+    }
+
+    .section-card {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+      margin-bottom: 22px;
+    }
+
+    .section-title {
+      font-size: 1.35rem;
+      font-weight: 900;
+      color: var(--purple-dark);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-desc {
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-bottom: 18px;
+    }
+
+    /* Chapters & Lessons */
+    .chapter-pills {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      margin-bottom: 18px;
+    }
+
+    .chapter-pill {
+      white-space: nowrap;
+      padding: 10px 16px;
+      border-radius: 16px;
+      border: 1.5px solid var(--border);
+      background: #fff;
+      color: var(--text);
+      font-family: inherit;
+      font-weight: 800;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .chapter-pill.active {
+      background: linear-gradient(135deg, var(--purple-soft), var(--turquoise-soft));
+      border-color: var(--purple);
+      color: var(--purple-dark);
+    }
+
+    .lessons-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 16px;
+    }
+
+    .lesson-item {
+      border: 1.5px solid var(--border);
+      border-radius: 18px;
+      padding: 16px;
+      background: linear-gradient(180deg, #ffffff 0%, #fcf8ff 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 12px;
+      transition: all 0.2s ease;
+    }
+
+    .lesson-item:hover {
+      border-color: var(--pink);
+      box-shadow: 0 10px 24px rgba(236, 72, 153, 0.1);
+    }
+
+    .lesson-type {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .type-lesson { background: var(--purple-soft); color: var(--purple-dark); }
+    .type-lab { background: var(--turquoise-soft); color: var(--turquoise-dark); }
+    .type-test { background: var(--pink-soft); color: var(--pink-dark); }
+    .type-prep { background: var(--gold-soft); color: #92400e; }
+
+    .lesson-title {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    .lesson-summary {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    /* Interactive Quiz & Games */
+    .quiz-box {
+      background: linear-gradient(135deg, #faf5ff, #fdf2f8);
+      border: 2px solid #e9d5ff;
+      border-radius: 22px;
+      padding: 22px;
+      margin-top: 14px;
+    }
+
+    .options-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      margin: 14px 0;
+    }
+
+    .option-btn {
+      padding: 13px 16px;
+      border-radius: 14px;
+      border: 2px solid var(--border);
+      background: #fff;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+      cursor: pointer;
+      text-align: right;
+      transition: all 0.18s ease;
+    }
+
+    .option-btn:hover {
+      border-color: var(--purple);
+      background: var(--purple-soft);
+    }
+
+    .option-btn.correct {
+      background: var(--success-soft);
+      border-color: var(--success);
+      color: #065f46;
+    }
+
+    .option-btn.wrong {
+      background: var(--danger-soft);
+      border-color: var(--danger);
+      color: #9f1239;
+    }
+
+    .feedback-banner {
+      padding: 14px 18px;
+      border-radius: 14px;
+      font-weight: 700;
+      margin-top: 12px;
+    }
+
+    .feedback-ok { background: var(--success-soft); color: #065f46; }
+    .feedback-err { background: var(--danger-soft); color: #9f1239; }
+
+    /* Badges & Games Grid */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 16px;
+    }
+
+    .badge-card {
+      border: 1.5px solid var(--border);
+      border-radius: 20px;
+      padding: 18px;
+      text-align: center;
+      background: #fff;
+      transition: transform 0.2s ease;
+    }
+
+    .badge-card.unlocked {
+      border-color: var(--gold);
+      background: linear-gradient(180deg, #fffbeb 0%, #ffffff 100%);
+    }
+
+    .badge-card.locked {
+      opacity: 0.55;
+      filter: grayscale(0.7);
+    }
+
+    .badge-icon {
+      font-size: 2.2rem;
+      margin-bottom: 8px;
+    }
+
+    /* Certificate */
+    .certificate {
+      border: 6px double var(--purple);
+      background: linear-gradient(135deg, #fffdf7 0%, #fdf4ff 50%, #f0fdfa 100%);
+      border-radius: 24px;
+      padding: 36px 28px;
+      text-align: center;
+      position: relative;
+    }
+
+    .cert-title {
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--purple-dark);
+      margin-bottom: 8px;
+    }
+
+    .cert-name {
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: var(--pink-dark);
+      border-bottom: 2px dashed var(--gold);
+      display: inline-block;
+      padding: 4px 28px;
+      margin: 12px 0;
+    }
+
+    /* Inputs & Tables */
+    input, select, textarea {
+      width: 100%;
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: 1.5px solid var(--border);
+      font-family: inherit;
+      font-size: 0.92rem;
+      background: #fff;
+      color: var(--text);
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--purple);
+      box-shadow: 0 0 0 3px rgba(109, 40, 217, 0.12);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+      font-size: 0.88rem;
+    }
+
+    th, td {
+      padding: 11px 12px;
+      border-bottom: 1px solid var(--border);
+      text-align: right;
+    }
+
+    th {
+      background: var(--purple-soft);
+      color: var(--purple-dark);
+      font-weight: 800;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 22px;
+      left: 22px;
+      z-index: 100;
+      background: var(--purple-dark);
+      color: #fff;
+      padding: 12px 18px;
+      border-radius: 14px;
+      font-weight: 700;
+      box-shadow: var(--shadow-lg);
+      display: none;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media print {
+      .topbar, .nav-tabs, .no-print, .btn, .toast {
+        display: none !important;
+      }
+      body {
+        background: #fff;
+      }
+      .certificate {
+        box-shadow: none;
+        border-width: 4px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand" onclick="switchTab('home')">
+        <div class="brand-badge">👑</div>
+        <div>
+          <div class="brand-title">مملكة الرياضيات</div>
+          <div class="brand-sub">الثالث المتوسط – الفصل الدراسي الأول</div>
+        </div>
+      </div>
+
+      <nav class="nav-tabs" aria-label="التنقل الرئيسي">
+        <button class="nav-btn active" data-tab="home" onclick="switchTab('home')">الرئيسية</button>
+        <button class="nav-btn" data-tab="curriculum" onclick="switchTab('curriculum')">المنهج والفصول</button>
+        <button class="nav-btn" data-tab="quiz" onclick="switchTab('quiz')">المسابقات والاختبارات</button>
+        <button class="nav-btn" data-tab="games" onclick="switchTab('games')">الألعاب الـ ١٢</button>
+        <button class="nav-btn" data-tab="badges" onclick="switchTab('badges')">الأوسمة والمستويات</button>
+        <button class="nav-btn" data-tab="certificate" onclick="switchTab('certificate')">الشهادة</button>
+        <button class="nav-btn" data-tab="teacher" onclick="switchTab('teacher')">لوحة المعلمة</button>
+      </nav>
+
+      <div class="student-pill">
+        <span id="headerStudentName">زائرة المملكة</span>
+        <span class="points-chip" id="headerPoints">0 نقطة</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- TAB 1: HOME -->
+    <section id="tab-home" class="tab-panel">
+      <div class="hero">
+        <div class="hero-grid">
+          <div>
+            <h1>مرحباً بكِ في مملكة الرياضيات ✨</h1>
+            <p>
+              منصة تفاعلية تعليمية مخصصة لطالبات الصف الثالث المتوسط في الفصل الدراسي الأول، تجمع بين شرح دروس المنهج، المعامل، الاختبارات، المسابقات الذكية، الألعاب التفاعلية، ونظام الأوسمة والشهادات.
+            </p>
+            <div class="hero-meta">
+              <span class="meta-tag">المعلمة: أ. مشاعل القاضي</span>
+              <span class="meta-tag">مديرة المدرسة: أ. الأنور العنزي</span>
+              <span class="meta-tag">٥ فصول دراسية شاملة</span>
+            </div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+              <button class="btn btn-gold" onclick="switchTab('curriculum')">ابدئي رحلة الفصول</button>
+              <button class="btn btn-turquoise" onclick="switchTab('quiz')">انطلقي إلى المسابقات</button>
+            </div>
+          </div>
+
+          <div class="hero-card">
+            <h3 style="font-size:1.05rem; font-weight:800; margin-bottom:8px;">تسجيل أو تحديث ملف الطالبة</h3>
+            <div class="form-grid" style="grid-template-columns:1fr; gap:10px; margin-bottom:10px;">
+              <input type="text" id="studentNameInput" placeholder="اكتبي اسمكِ الثلاثي هنا..." />
+              <select id="studentClassInput">
+                <option value="ثالث متوسط (أ)">ثالث متوسط (أ)</option>
+                <option value="ثالث متوسط (ب)">ثالث متوسط (ب)</option>
+                <option value="ثالث متوسط (ج)">ثالث متوسط (ج)</option>
+                <option value="ثالث متوسط (د)">ثالث متوسط (د)</option>
+              </select>
+            </div>
+            <button class="btn btn-primary" style="width:100%;" onclick="saveStudentProfile()">حفظ بيانات الطالبة وبدء التقدم</button>
+
+            <div class="stat-row">
+              <div class="stat-box">
+                <span class="stat-num" id="homePoints">0</span>
+                <span class="stat-label">مجموع النقاط</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-num" id="homeLevel">المستوى ١</span>
+                <span class="stat-label" id="homeLevelTitle">مستكشفة الأعداد</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-num" id="homeCompletedLessons">0 / 39</span>
+                <span class="stat-label">أنشطة المنهج المنجزة</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-num" id="homeBadgesCount">0 / 8</span>
+                <span class="stat-label">الأوسمة المفتوحة</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-card">
+        <h2 class="section-title">أقسام المملكة التفاعلية</h2>
+        <p class="section-desc">اختاري القسم الذي ترغبين بالانتقال إليه مباشرة مع حفظ تلقائي لتقدمكِ ونقاطكِ.</p>
+        <div class="lessons-grid">
+          <div class="lesson-item">
+            <div>
+              <span class="lesson-type type-lesson">المحتوى الدراسي</span>
+              <div class="lesson-title">المنهج والفصول الخمسة</div>
+              <p class="lesson-summary">جميع الفصول، التهيئة، الدروس، معامل الجبر والحاسبة البيانية، واختبارات منتصف الفصل والفصل والتراكمية.</p>
+            </div>
+            <button class="btn btn-primary btn-sm" onclick="switchTab('curriculum')">فتح الفصول</button>
+          </div>
+
+          <div class="lesson-item">
+            <div>
+              <span class="lesson-type type-test">التحدي الذكي</span>
+              <div class="lesson-title">المسابقات والاختبارات التفاعلية</div>
+              <p class="lesson-summary">أسئلة متنوعة حسب الفصل أو نمط المسابقة مع تصحيح فوري، شرح للخطوات، واحتساب للنقاط.</p>
+            </div>
+            <button class="btn btn-turquoise btn-sm" onclick="switchTab('quiz')">بدء المسابقة</button>
+          </div>
+
+          <div class="lesson-item">
+            <div>
+              <span class="lesson-type type-lab">١٢ لعبة تفاعلية</span>
+              <div class="lesson-title">ألعاب مملكة الرياضيات</div>
+              <p class="lesson-summary">ألعاب سريعة وممتعة تغطي المعادلات، الميل، العلاقات، المتباينات، والأنظمة الخطية.</p>
+            </div>
+            <button class="btn btn-gold btn-sm" onclick="switchTab('games')">استعراض الألعاب</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 2: CURRICULUM -->
+    <section id="tab-curriculum" class="tab-panel" style="display:none;">
+      <div class="section-card">
+        <h2 class="section-title">المنهج الدراسي – الصف الثالث المتوسط (الفصل الأول)</h2>
+        <p class="section-desc">استعرضي جميع وحدات وفصول الكتاب ودروسه ومعامله واختباراته، وسجّلي إتمام كل وحدة لكسب النقاط.</p>
+
+        <div class="chapter-pills" id="chapterPills"></div>
+        <div id="activeChapterHeader" style="margin-bottom:14px;"></div>
+        <div class="lessons-grid" id="lessonsContainer"></div>
+      </div>
+    </section>
+
+    <!-- TAB 3: QUIZ -->
+    <section id="tab-quiz" class="tab-panel" style="display:none;">
+      <div class="section-card">
+        <h2 class="section-title">المسابقات والاختبارات التفاعلية</h2>
+        <p class="section-desc">اختاري الفصل أو نوع المسابقة، وأجيبي عن الأسئلة للحصول على نقاط فورية وفتح الأوسمة.</p>
+
+        <div class="form-grid">
+          <div>
+            <label style="font-weight:700; font-size:0.88rem;">تصفية حسب الفصل</label>
+            <select id="quizChapterFilter" onchange="startQuizSession()">
+              <option value="all">جميع الفصول (١ – ٥)</option>
+              <option value="1">الفصل ١: المعادلات الخطية</option>
+              <option value="2">الفصل ٢: العلاقات والدوال الخطية</option>
+              <option value="3">الفصل ٣: الدوال الخطية</option>
+              <option value="4">الفصل ٤: المتباينات الخطية</option>
+              <option value="5">الفصل ٥: أنظمة المعادلات الخطية</option>
+            </select>
+          </div>
+          <div>
+            <label style="font-weight:700; font-size:0.88rem;">نمط المسابقة</label>
+            <select id="quizModeFilter" onchange="startQuizSession()">
+              <option value="standard">مسابقة قياسية (+١٥ نقطة لكل إجابة صحيحة)</option>
+              <option value="challenge">تحدي المتفوقات (+٢٥ نقطة لكل إجابة صحيحة)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="quiz-box" id="quizBox"></div>
+      </div>
+    </section>
+
+    <!-- TAB 4: GAMES (12 GAMES) -->
+    <section id="tab-games" class="tab-panel" style="display:none;">
+      <div class="section-card">
+        <h2 class="section-title">الألعاب التفاعلية الـ ١٢ في مملكة الرياضيات</h2>
+        <p class="section-desc">اختاري أي لعبة من الألعاب الاثنتي عشرة، حلي التحدي الرياضي، وأضيفي نقاطكِ مباشرة إلى رصيدكِ.</p>
+        <div class="grid-3" id="gamesCatalog"></div>
+      </div>
+
+      <div class="section-card" id="activeGamePanel" style="display:none;">
+        <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:12px;">
+          <h3 class="section-title" id="activeGameTitle" style="margin:0;"></h3>
+          <button class="btn btn-outline btn-sm" onclick="closeGame()">إغلاق اللعبة</button>
+        </div>
+        <div id="activeGameBody"></div>
+      </div>
+    </section>
+
+    <!-- TAB 5: BADGES & LEVELS -->
+    <section id="tab-badges" class="tab-panel" style="display:none;">
+      <div class="section-card">
+        <h2 class="section-title">المستويات والأوسمة الملكية (٨ أوسمة)</h2>
+        <p class="section-desc">تتقدمين عبر المستويات وتفتحين الأوسمة تلقائياً مع ازدياد نقاطكِ وإنجازاتكِ في المنهج والمسابقات والألعاب.</p>
+
+        <div style="background:var(--purple-soft); padding:16px; border-radius:16px; margin-bottom:20px;">
+          <div style="display:flex; justify-content:space-between; font-weight:800; margin-bottom:8px;">
+            <span id="levelProgressLabel">المستوى ١: مستكشفة الأعداد</span>
+            <span id="levelPointsText">0 / 100 نقطة للمستوى التالي</span>
+          </div>
+          <div style="background:#fff; border-radius:999px; height:14px; overflow:hidden; border:1px solid var(--border);">
+            <div id="levelProgressBar" style="height:100%; width:0%; background:linear-gradient(90deg, var(--purple), var(--pink), var(--turquoise)); transition:width 0.35s ease;"></div>
+          </div>
+        </div>
+
+        <div class="grid-3" id="badgesGrid"></div>
+      </div>
+    </section>
+
+    <!-- TAB 6: CERTIFICATE -->
+    <section id="tab-certificate" class="tab-panel" style="display:none;">
+      <div class="section-card">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:16px;" class="no-print">
+          <div>
+            <h2 class="section-title" style="margin:0;">شهادة الإنجاز والتميز في مملكة الرياضيات</h2>
+            <p class="section-desc" style="margin:0;">تُحدَّث الشهادة تلقائياً باسمكِ ونقاطكِ ومستواكِ، ويمكنكِ طباعتها أو حفظها كـ PDF.</p>
+          </div>
+          <button class="btn btn-primary" onclick="window.print()">طباعة الشهادة / حفظ PDF</button>
+        </div>
+
+        <div class="certificate">
+          <div style="font-size:1.1rem; font-weight:800; color:var(--turquoise-dark);">بسم الله الرحمن الرحيم</div>
+          <div class="cert-title">شهادة تفوق وإنجاز – مملكة الرياضيات</div>
+          <p style="color:var(--muted); font-weight:700;">تمنح إدارة منصة مملكة الرياضيات هذه الشهادة بكل فخر واعتزاز إلى الطالبة:</p>
+          <div class="cert-name" id="certStudentName">زائرة المملكة</div>
+          <p style="font-size:1rem; max-width:680px; margin:12px auto;">
+            من الصف <strong id="certStudentClass">ثالث متوسط (أ)</strong>، نظير تفاعلها المتميز واجتهادها في استكشاف مقررات الرياضيات للصف الثالث المتوسط (الفصل الدراسي الأول)، وحصولها على <strong id="certPoints">0</strong> نقطة وبلوغها <strong id="certLevel">المستوى ١</strong>.
+          </p>
+
+          <div style="display:flex; justify-content:space-around; flex-wrap:wrap; gap:20px; margin-top:28px; padding-top:18px; border-top:1px solid var(--border);">
+            <div>
+              <div style="font-weight:800; color:var(--purple-dark);">المعلمة المشرفة</div>
+              <div style="font-weight:700;">أ. مشاعل القاضي</div>
+            </div>
+            <div>
+              <div style="font-weight:800; color:var(--purple-dark);">مديرة المدرسة</div>
+              <div style="font-weight:700;">أ. الأنور العنزي</div>
+            </div>
+            <div>
+              <div style="font-weight:800; color:var(--purple-dark);">التاريخ</div>
+              <div id="certDate" style="font-weight:700;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 7: TEACHER DASHBOARD -->
+    <section id="tab-teacher" class="tab-panel" style="display:none;">
+      <div class="section-card" id="teacherLoginBox">
+        <h2 class="section-title">دخول لوحة تحكم المعلمة – أ. مشاعل القاضي</h2>
+        <p class="section-desc">لوحة متابعة مستقلة لمشاهدة سجلات الطالبات المسجلات في هذا المتصفح أو المزامنة السحابية، وتصدير البيانات إلى Excel (CSV)، وإعداد ربط قاعدة البيانات السحابية.</p>
+        <div class="form-grid" style="max-width:460px;">
+          <input type="password" id="teacherPassInput" placeholder="أدخلي كلمة مرور المعلمة (الافتراضية: 3030)" />
+          <button class="btn btn-primary" onclick="loginTeacher()">دخول اللوحة</button>
+        </div>
+      </div>
+
+      <div id="teacherPanelContent" style="display:none;">
+        <div class="section-card">
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:14px;">
+            <div>
+              <h2 class="section-title" style="margin:0;">سجل متابعة الطالبات وإحصاءات المملكة</h2>
+              <p class="section-desc" style="margin:0;">يعرض جميع ملفات الطالبات المحفوظة وإمكانية تصديرها أو تحديثها.</p>
+            </div>
+            <div style="display:flex; gap:8px; flex-wrap:wrap;">
+              <button class="btn btn-turquoise btn-sm" onclick="exportStudentsCSV()">تصدير ملف Excel (CSV)</button>
+              <button class="btn btn-outline btn-sm" onclick="refreshTeacherTable()">تحديث السجل</button>
+              <button class="btn btn-danger btn-sm" onclick="logoutTeacher()">خروج</button>
+            </div>
+          </div>
+
+          <div class="stat-row" style="grid-template-columns:repeat(auto-fit, minmax(180px, 1fr)); margin-bottom:16px;">
+            <div class="stat-box" style="background:var(--purple-soft); color:var(--purple-dark);">
+              <span class="stat-num" id="tTotalStudents">0</span>
+              <span class="stat-label">عدد الطالبات المسجلات</span>
+            </div>
+            <div class="stat-box" style="background:var(--pink-soft); color:var(--pink-dark);">
+              <span class="stat-num" id="tAvgPoints">0</span>
+              <span class="stat-label">متوسط النقاط</span>
+            </div>
+            <div class="stat-box" style="background:var(--turquoise-soft); color:var(--turquoise-dark);">
+              <span class="stat-num" id="tTopPoints">0</span>
+              <span class="stat-label">أعلى رصيد نقاط</span>
+            </div>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>اسم الطالبة</th>
+                  <th>الصف / الشعبة</th>
+                  <th>النقاط</th>
+                  <th>المستوى</th>
+                  <th>الأنشطة المنجزة</th>
+                  <th>الأوسمة</th>
+                  <th>آخر تحديث</th>
+                </tr>
+              </thead>
+              <tbody id="teacherStudentsBody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="section-card">
+          <h3 class="section-title">إعدادات المزامنة السحابية (Firebase REST / اختياري)</h3>
+          <p class="section-desc">عند إدخال رابط قاعدة بيانات Firestore / Realtime Database أو نقطة نهاية سحابية خاصة بكِ، يتم إرسال لقطة التقدم تلقائياً عند الحفظ.</p>
+          <div class="form-grid">
+            <input type="url" id="cloudEndpointInput" placeholder="https://your-project-default-rtdb.firebaseio.com/math_kingdom.json" />
+            <button class="btn btn-primary btn-sm" onclick="saveCloudEndpoint()">حفظ رابط المزامنة السحابية</button>
+          </div>
+          <div id="cloudStatusText" style="font-size:0.86rem; color:var(--muted); font-weight:700;"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="toast" id="toastBox"></div>
+
+  <script>
+    // Complete curriculum structure from الصف الثالث المتوسط - الفصل الدراسي الأول
+    const CHAPTERS = [
+      {
+        id: 1,
+        name: "الفصل ١: المعادلات الخطية",
+        intro: "حل المعادلات الخطية بمتغير واحد، معمل الجبر، حل المعادلات ذات الخطوة الواحدة والمتعددة الخطوات، متغير في طرفيها، والقيمة المطلقة.",
+        items: [
+          { id: "c1-prep", type: "prep", label: "التهيئة", title: "التهيئة للفصل ١", desc: "مراجعة مهارات العمليات على الأعداد الصحيحة والكسور والعبارات الجبرية." },
+          { id: "c1-l1", type: "lesson", label: "الدرس ١-١", title: "المعادلات", desc: "حل المعادلات وتحديد مجموعة الحل ومجموعات التعويض." },
+          { id: "c1-lab1", type: "lab", label: "معمل الجبر", title: "استكشاف ١-٢: حل المعادلات", desc: "تمثيل وحل المعادلات باستعمال النماذج الجبرية." },
+          { id: "c1-l2", type: "lesson", label: "الدرس ١-٢", title: "حل المعادلات ذات الخطوة الواحدة", desc: "استعمال الجمع والطرح والضرب والقسمة لحل المعادلات." },
+          { id: "c1-lab2", type: "lab", label: "معمل الجبر", title: "استكشاف ١-٣: حل المعادلات المتعددة الخطوات", desc: "توظيف النماذج لفهم المعادلات متعددة الخطوات." },
+          { id: "c1-l3", type: "lesson", label: "الدرس ١-٣", title: "حل المعادلات المتعددة الخطوات", desc: "حل معادلات تتضمن أكثر من عملية وكتابة معادلات متتالية." },
+          { id: "c1-mid", type: "test", label: "اختبار", title: "اختبار منتصف الفصل (الدروس ١-١ إلى ١-٣)", desc: "تقويم مرحلي لمهارات حل المعادلات الخطية." },
+          { id: "c1-l4", type: "lesson", label: "الدرس ١-٤", title: "حل المعادلات التي تحتوي متغيراً في طرفيها", desc: "تجميع الحدود المتشابهة وحل المعادلات التي تتضمن أقواساً." },
+          { id: "c1-l5", type: "lesson", label: "الدرس ١-٥", title: "حل المعادلات التي تتضمن القيمة المطلقة", desc: "حساب القيم المطلقة وحل معادلات القيمة المطلقة." },
+          { id: "c1-end", type: "test", label: "اختبار", title: "اختبار الفصل ١", desc: "اختبار شامل على جميع دروس الفصل الأول." },
+          { id: "c1-cum", type: "test", label: "تراكمي", title: "الاختبار التراكمي (الفصل ١)", desc: "أسئلة اختيار من متعدد وإجابات قصيرة ومطولة." }
+        ]
+      },
+      {
+        id: 2,
+        name: "الفصل ٢: العلاقات والدوال الخطية",
+        intro: "تمثيل العلاقات والدوال، تمثيل المعادلات الخطية بيانياً وحلها، معدل التغير والميل، والمتتابعات الحسابية كدوال خطية.",
+        items: [
+          { id: "c2-prep", type: "prep", label: "التهيئة", title: "التهيئة للفصل ٢", desc: "التمثيل في المستوى الإحداثي وتقييم العبارات الجبرية." },
+          { id: "c2-l1", type: "lesson", label: "الدرس ٢-١", title: "العلاقات", desc: "تمثيل العلاقات بالأزواج المرتبة والجداول والمخططات السهمية والبيانية." },
+          { id: "c2-l2", type: "lesson", label: "الدرس ٢-٢", title: "الدوال", desc: "تحديد الدوال وإيجاد قيمها وتصنيفها إلى متصلة ومنفصلة." },
+          { id: "c2-l3", type: "lesson", label: "الدرس ٢-٣", title: "تمثيل المعادلات الخطية بيانياً", desc: "تحديد المعادلات الخطية وإيجاد المقطعين السيني والصادي وتمثيلها." },
+          { id: "c2-mid", type: "test", label: "اختبار", title: "اختبار منتصف الفصل (الدروس ٢-١ إلى ٢-٣)", desc: "مراجعة العلاقات والدوال والتمثيل البياني الخطي." },
+          { id: "c2-l4", type: "lesson", label: "الدرس ٢-٤", title: "حل المعادلات الخطية بيانياً", desc: "تقدير حل المعادلة الخطية بيانياً وحلها جبرياً." },
+          { id: "c2-l5", type: "lesson", label: "الدرس ٢-٥", title: "معدل التغير والميل", desc: "إيجاد معدل التغير وميل المستقيم المار بنقطتين وتفسيره." },
+          { id: "c2-l6", type: "lesson", label: "الدرس ٢-٦", title: "المتتابعات الحسابية كدوال خطية", desc: "تحديد المتتابعات الحسابية وإيجاد أساسها وحدها النوني." },
+          { id: "c2-end", type: "test", label: "اختبار", title: "اختبار الفصل ٢", desc: "اختبار شامل على العلاقات والدوال الخطية." },
+          { id: "c2-cum", type: "test", label: "تراكمي", title: "الاختبار التراكمي (الفصل ٢)", desc: "تدريبات شاملة بنمط الاختبارات." }
+        ]
+      },
+      {
+        id: 3,
+        name: "الفصل ٣: الدوال الخطية",
+        intro: "تمثيل وكتابة المعادلات بصيغة الميل والمقطع وبصيغة الميل ونقطة، والمستقيمات المتوازية والمتعامدة.",
+        items: [
+          { id: "c3-prep", type: "prep", label: "التهيئة", title: "التهيئة للفصل ٣", desc: "مراجعة إيجاد الميل وحل المعادلات والتمثيل البياني." },
+          { id: "c3-l1", type: "lesson", label: "الدرس ٣-١", title: "تمثيل المعادلات المكتوبة بصيغة الميل والمقطع بيانياً", desc: "استعمال صيغة الميل والمقطع (ص = م س + ب) للتمثيل البياني." },
+          { id: "c3-l2", type: "lesson", label: "الدرس ٣-٢", title: "كتابة المعادلات بصيغة الميل والمقطع", desc: "كتابة معادلة مستقيم علم ميله ومقطعه الصادي أو نقطتان يمر بهما." },
+          { id: "c3-mid", type: "test", label: "اختبار", title: "اختبار منتصف الفصل ٣", desc: "تقويم مهارات صيغة الميل والمقطع." },
+          { id: "c3-l3", type: "lesson", label: "الدرس ٣-٣", title: "كتابة المعادلات بصيغة الميل ونقطة", desc: "كتابة المعادلة بصيغة الميل ونقطة وتحويلها إلى الصورة القياسية." },
+          { id: "c3-l4", type: "lesson", label: "الدرس ٣-٤", title: "المستقيمات المتوازية والمستقيمات المتعامدة", desc: "تحديد التوازي والتعامد من خلال الميول وكتابة معادلات مستقيمة موازية أو عمودية." },
+          { id: "c3-end", type: "test", label: "اختبار", title: "اختبار الفصل ٣", desc: "اختبار شامل على الدوال الخطية." },
+          { id: "c3-cum", type: "test", label: "تراكمي", title: "الاختبار التراكمي (الفصل ٣)", desc: "أسئلة تراكمية على فصول المنهج." }
+        ]
+      },
+      {
+        id: 4,
+        name: "الفصل ٤: المتباينات الخطية",
+        intro: "حل المتباينات الخطية بالجمع والطرح والضرب والقسمة والمتعددة الخطوات، والمتباينات المركبة والقيمة المطلقة.",
+        items: [
+          { id: "c4-prep", type: "prep", label: "التهيئة", title: "التهيئة للفصل ٤", desc: "مراجعة رموز التباين والعمليات على الأعداد الصحيحة." },
+          { id: "c4-l1", type: "lesson", label: "الدرس ٤-١", title: "حل المتباينات بالجمع أو بالطرح", desc: "حل المتباينات وتمثيل مجموعات حلها بيانياً." },
+          { id: "c4-lab1", type: "lab", label: "معمل الجبر", title: "حل المتباينات", desc: "استكشاف خصائص المتباينات باستعمال النماذج." },
+          { id: "c4-l2", type: "lesson", label: "الدرس ٤-٢", title: "حل المتباينات بالضرب أو بالقسمة", desc: "الانتباه لعكس إشارة التباين عند الضرب أو القسمة على عدد سالب." },
+          { id: "c4-l3", type: "lesson", label: "الدرس ٤-٣", title: "حل المتباينات المتعددة الخطوات", desc: "حل متباينات تتضمن أكثر من عملية أو أقواساً." },
+          { id: "c4-mid", type: "test", label: "اختبار", title: "اختبار منتصف الفصل ٤", desc: "تقويم حل المتباينات البسيطة والمتعددة الخطوات." },
+          { id: "c4-lab2", type: "lab", label: "معمل الجبر", title: "قراءة العبارات المركبة", desc: "فهم أدوات الربط (و) و(أو) في العبارات المركبة." },
+          { id: "c4-l4", type: "lesson", label: "الدرس ٤-٤", title: "حل المتباينات المركبة", desc: "حل المتباينات المركبة التي تحتوي (و) أو (أو) وتمثيلها." },
+          { id: "c4-l5", type: "lesson", label: "الدرس ٤-٥", title: "حل المتباينات التي تتضمن القيمة المطلقة", desc: "حل متباينات القيمة المطلقة (< أو >) وتمثيلها بيانياً." },
+          { id: "c4-end", type: "test", label: "اختبار", title: "اختبار الفصل ٤", desc: "اختبار شامل على المتباينات الخطية." },
+          { id: "c4-cum", type: "test", label: "تراكمي", title: "الاختبار التراكمي (الفصل ٤)", desc: "تدريبات تراكمية شاملة." }
+        ]
+      },
+      {
+        id: 5,
+        name: "الفصل ٥: أنظمة المعادلات الخطية",
+        intro: "حل نظام من معادلتين خطيتين بيانياً، بالتعويض، بالحذف بالجمع أو الطرح، بالحذف بالضرب، وتطبيقات على الأنظمة.",
+        items: [
+          { id: "c5-prep", type: "prep", label: "التهيئة", title: "التهيئة للفصل ٥", desc: "مراجعة تمثيل المستقيمات وحل المعادلات." },
+          { id: "c5-l1", type: "lesson", label: "الدرس ٥-١", title: "حل نظام من معادلتين خطيتين بيانياً", desc: "تحديد عدد الحلول (حل وحيد، لا يوجد حل، عدد لا نهائي)." },
+          { id: "c5-lab", type: "lab", label: "معمل الحاسبة البيانية", title: "حل نظام من معادلتين خطيتين", desc: "استكشاف تقاطع المستقيمات عبر التمثيل البياني." },
+          { id: "c5-l2", type: "lesson", label: "الدرس ٥-٢", title: "حل نظام من معادلتين خطيتين بالتعويض", desc: "عزل أحد المتغيرين والتعويض به في المعادلة الأخرى." },
+          { id: "c5-l3", type: "lesson", label: "الدرس ٥-٣", title: "حل نظام من معادلتين خطيتين بالحذف باستعمال الجمع أو الطرح", desc: "حذف متغير له المعامل نفسه أو معكوسه." },
+          { id: "c5-mid", type: "test", label: "اختبار", title: "اختبار منتصف الفصل ٥", desc: "تقويم حل الأنظمة بيانياً وبالتعويض وبالحذف." },
+          { id: "c5-l4", type: "lesson", label: "الدرس ٥-٤", title: "حل نظام من معادلتين خطيتين بالحذف باستعمال الضرب", desc: "ضرب إحدى المعادلتين أو كلتيهما لتسهيل الحذف." },
+          { id: "c5-l5", type: "lesson", label: "الدرس ٥-٥", title: "تطبيقات على النظام المكون من معادلتين خطيتين", desc: "اختيار أفضل طريقة لحل المسائل اللفظية والواقعية." },
+          { id: "c5-end", type: "test", label: "اختبار", title: "اختبار الفصل ٥", desc: "اختبار شامل على أنظمة المعادلات الخطية." },
+          { id: "c5-cum", type: "test", label: "تراكمي", title: "الاختبار التراكمي (الفصل ٥)", desc: "اختبار تراكمي ختامي للفصل الدراسي الأول." }
+        ]
+      }
+    ];
+
+    const QUIZ_BANK = [
+      { ch: 1, q: "ما حل المعادلة: س + ٧ = ١٥ ؟", opts: ["س = ٨", "س = ٢٢", "س = -٨", "س = ٥"], ans: 0, tip: "نطرح ٧ من الطرفين: س = ١٥ - ٧ = ٨." },
+      { ch: 1, q: "ما حل المعادلة: ٣س - ٤ = ١١ ؟", opts: ["س = ٥", "س = ٣", "س = ٧", "س = -٥"], ans: 0, tip: "نضيف ٤ للطرفين (٣س = ١٥) ثم نقسم على ٣ فنحصل على س = ٥." },
+      { ch: 1, q: "ما حل المعادلة: |ن - ٢| = ٥ ؟", opts: ["ن = ٧ أو ن = -٣", "ن = ٣ فقط", "ن = ٧ فقط", "ن = -٧ أو ن = ٣"], ans: 0, tip: "إما ن - ٢ = ٥ (ن = ٧) أو ن - ٢ = -٥ (ن = -٣)." },
+      { ch: 2, q: "في العلاقة {(٢ ، ٣)، (٤ ، ٥)، (٦ ، ٧)} ما المجال؟", opts: ["{٢ ، ٤ ، ٦}", "{٣ ، ٥ ، ٧}", "{٢ ، ٣ ، ٤}", "{٥ ، ٦ ، ٧}"], ans: 0, tip: "المجال هو مجموعة الإحداثيات السينية: {٢ ، ٤ ، ٦}." },
+      { ch: 2, q: "ما ميل المستقيم المار بالنقطتين (١ ، ٢) و (٣ ، ٦)؟", opts: ["٢", "٤", "١/٢", "-٢"], ans: 0, tip: "الميل = (٦ - ٢) / (٣ - ١) = ٤ / ٢ = ٢." },
+      { ch: 2, q: "ما أساس المتتابعة الحسابية: ٥ ، ٩ ، ١٣ ، ١٧ ، ... ؟", opts: ["٤", "٥", "٣", "-٤"], ans: 0, tip: "الفرق الثابت بين كل حد والذي يليه: ٩ - ٥ = ٤." },
+      { ch: 3, q: "في المعادلة ص = -٣س + ٦ ، ما الميل والمقطع الصادي؟", opts: ["الميل = -٣ ، المقطع الصادي = ٦", "الميل = ٦ ، المقطع الصادي = -٣", "الميل = ٣ ، المقطع الصادي = ٦", "الميل = -٣ ، المقطع الصادي = -٦"], ans: 0, tip: "الصيغة ص = م س + ب حيث م هو الميل (-٣) وب هو المقطع الصادي (٦)." },
+      { ch: 3, q: "ميل مستقيم يوازي مستقيماً ميله يساوي -٤ هو:", opts: ["-٤", "١/٤", "٤", "-١/٤"], ans: 0, tip: "المستقيمان المتوازيان غير الرأسيين لهما الميل نفسه." },
+      { ch: 3, q: "إذا كان ميل مستقيم يساوي ٢ ، فما ميل المستقيم العمودي عليه؟", opts: ["-١/٢", "٢", "-٢", "١/٢"], ans: 0, tip: "ميل المستقيم العمودي هو مقلوب الميل مع عكس الإشارة: -١/٢." },
+      { ch: 4, q: "عند حل المتباينة -٢س > ٨ بالقسمة على -٢ فإننا:", opts: ["نعكس رمز التباين ليصبح س < -٤", "نبقي الرمز كما هو س > -٤", "نجمع ٢ للطرفين", "نحذف إشارة السالب فقط"], ans: 0, tip: "عند ضرب أو قسمة طرفي المتباينة على عدد سالب، يتغير اتجاه رمز التباين." },
+      { ch: 4, q: "أي متباينة مركبة تمثل (س أكبر من ٣ وأقل من أو يساوي ٨)؟", opts: ["٣ < س ≤ ٨", "س < ٣ أو س ≥ ٨", "٣ ≥ س > ٨", "س > ٣ أو س < ٨"], ans: 0, tip: "أداة الربط (و) تكتب كمتباينة مركبة متصلة: ٣ < س ≤ ٨." },
+      { ch: 5, q: "ما حل النظام: س + ص = ١٠ و س - ص = ٤ ؟", opts: ["(٧ ، ٣)", "(٦ ، ٤)", "(٥ ، ٥)", "(٨ ، ٢)"], ans: 0, tip: "بجمع المعادلتين: ٢س = ١٤ ← س = ٧ ، ثم ص = ١٠ - ٧ = ٣." },
+      { ch: 5, q: "إذا كان مستقيما النظام متوازيين ولا يتقاطعان، فعدد حلول النظام:", opts: ["لا يوجد حل", "حل وحيد", "عدد لا نهائي من الحلول", "حلان فقط"], ans: 0, tip: "عدم تقاطع المستقيمين يعني عدم وجود نقطة مشتركة تحقق المعادلتين معاً." }
+    ];
+
+    const BADGES = [
+      { id: "b1", icon: "🌟", name: "بداية الملكة", cond: "احصلي على ١٥ نقطة فأكثر", reqPts: 15 },
+      { id: "b2", icon: "📐", name: "عاشقة المعادلات", cond: "احصلي على ٥٠ نقطة فأكثر", reqPts: 50 },
+      { id: "b3", icon: "📈", name: "خبيرة الدوال والميل", cond: "احصلي على ١٠٠ نقطة فأكثر", reqPts: 100 },
+      { id: "b4", icon: "⚖️", name: "بطلة المتباينات", cond: "احصلي على ١٥٠ نقطة فأكثر", reqPts: 150 },
+      { id: "b5", icon: "🧩", name: "قاهرة الأنظمة", cond: "احصلي على ٢٠٠ نقطة فأكثر", reqPts: 200 },
+      { id: "b6", icon: "📚", name: "متمكنة المنهج", cond: "أنجزي ٥ أنشطة من المنهج", reqLessons: 5 },
+      { id: "b7", icon: "🎮", name: "لاعبة الألعاب الذكية", cond: "احصلي على ٢٥٠ نقطة فأكثر", reqPts: 250 },
+      { id: "b8", icon: "👑", name: "تاج مملكة الرياضيات", cond: "احصلي على ٣٥٠ نقطة فأكثر", reqPts: 350 }
+    ];
+
+    const GAMES_12 = [
+      { id: "g1", title: "١. صائدة المجهول (س)", topic: "المعادلات ذات الخطوة الواحدة", prompt: "أوجدي قيمة س إذا كان: س + ٩ = ٢٠", answer: "11", hint: "اطرحي ٩ من ٢٠" },
+      { id: "g2", title: "٢. سباق الخطوات المتعددة", topic: "المعادلات المتعددة الخطوات", prompt: "أوجدي قيمة ص إذا كان: ٢ص + ٦ = ١٨", answer: "6", hint: "اطرحي ٦ ثم اقسمي على ٢" },
+      { id: "g3", title: "٣. لغز القيمة المطلقة", topic: "القيمة المطلقة", prompt: "ما قيمة | -١٤ | + ٣ ؟", answer: "17", hint: "القيمة المطلقة لـ -١٤ هي ١٤" },
+      { id: "g4", title: "٤. مختبر الأزواج المرتبة", topic: "العلاقات", prompt: "في الزوج المرتب (٤ ، ٩) ما قيمة الإحداثي الصادي؟", answer: "9", hint: "العدد الثاني في الزوج المرتب" },
+      { id: "g5", title: "٥. آلة الدوال السحرية", topic: "الدوال", prompt: "إذا كانت د(س) = ٢س + ١ ، فما قيمة د(٣)؟", answer: "7", hint: "عوّضي س = ٣ ثم اجمعي ١" },
+      { id: "g6", title: "٦. صيادة الميل", topic: "معدل التغير والميل", prompt: "مستقيم يمر بالنقطتين (٠ ، ٠) و (٤ ، ١٢)؛ ما ميله؟", answer: "3", hint: "اقسمي ١٢ على ٤" },
+      { id: "g7", title: "٧. متسلق المتتابعات", topic: "المتتابعات الحسابية", prompt: "ما الحد التالي في المتتابعة: ٣ ، ٧ ، ١١ ، ١٥ ، ... ؟", answer: "19", hint: "أضيفي ٤ إلى ١٥" },
+      { id: "g8", title: "٨. كاشفة المقطع الصادي", topic: "صيغة الميل والمقطع", prompt: "في المعادلة ص = ٤س - ٥ ، ما المقطع الصادي؟", answer: "-5", hint: "العدد الثابت ب بإشارته" },
+      { id: "g9", title: "٩. تحدي التوازي والتعامد", topic: "المستقيمات المتوازية", prompt: "ما ميل المستقيم الموازي لمستقيم ميله ٧؟", answer: "7", hint: "المستقيمان المتوازيان لهما الميل نفسه" },
+      { id: "g10", title: "١٠. ميزان المتباينات", topic: "المتباينات", prompt: "ما أكبر عدد صحيح يحقق: س < ١٠ ؟", answer: "9", hint: "أكبر عدد صحيح أقل تماماً من ١٠" },
+      { id: "g11", title: "١١. حارسة العبارات المركبة", topic: "المتباينات المركبة", prompt: "كم عدداً صحيحاً يحقق: ١ < س < ٥ ؟", answer: "3", hint: "الأعداد هي ٢ و ٣ و ٤" },
+      { id: "g12", title: "١٢. فك شيفرة النظام", topic: "أنظمة المعادلات", prompt: "إذا كان س + ص = ١٢ و س = ٨ ، فما قيمة ص؟", answer: "4", hint: "اطرحي ٨ من ١٢" }
+    ];
+
+    const STORAGE_KEY = "math_kingdom_state_v1";
+    const DIRECTORY_KEY = "math_kingdom_students_dir_v1";
+    const CLOUD_URL_KEY = "math_kingdom_cloud_url_v1";
+
+    function defaultState() {
+      return {
+        name: "زائرة المملكة",
+        studentClass: "ثالث متوسط (أ)",
+        points: 0,
+        completedLessons: [],
+        completedGames: [],
+        updatedAt: new Date().toLocaleString("ar-SA")
+      };
+    }
+
+    function loadState() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        return raw ? { ...defaultState(), ...JSON.parse(raw) } : defaultState();
+      } catch {
+        return defaultState();
+      }
+    }
+
+    function loadDirectory() {
+      try {
+        const raw = localStorage.getItem(DIRECTORY_KEY);
+        return raw ? JSON.parse(raw) : [];
+      } catch {
+        return [];
+      }
+    }
+
+    let state = loadState();
+    let currentChapterId = 1;
+    let quizQueue = [];
+    let quizIndex = 0;
+    let quizScore = 0;
+
+    function showToast(msg) {
+      const el = document.getElementById("toastBox");
+      el.textContent = msg;
+      el.style.display = "block";
+      clearTimeout(window._toastTimer);
+      window._toastTimer = setTimeout(() => { el.style.display = "none"; }, 2800);
+    }
+
+    function getLevelInfo(pts) {
+      if (pts >= 350) return { level: 6, title: "ملكة الرياضيات" };
+      if (pts >= 250) return { level: 5, title: "عالمة الجبر والأنظمة" };
+      if (pts >= 175) return { level: 4, title: "خبيرة المتباينات" };
+      if (pts >= 100) return { level: 3, title: "مهندسة الخطوط والدوال" };
+      if (pts >= 45) return { level: 2, title: "باحثة الأنماط" };
+      return { level: 1, title: "مستكشفة الأعداد" };
+    }
+
+    function getUnlockedBadgesCount(s = state) {
+      return BADGES.filter(b => {
+        if (b.reqPts && s.points >= b.reqPts) return true;
+        if (b.reqLessons && (s.completedLessons || []).length >= b.reqLessons) return true;
+        return false;
+      }).length;
+    }
+
+    function persistState() {
+      state.updatedAt = new Date().toLocaleString("ar-SA");
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+
+      if (state.name && state.name !== "زائرة المملكة") {
+        const dir = loadDirectory();
+        const lvl = getLevelInfo(state.points);
+        const record = {
+          name: state.name,
+          studentClass: state.studentClass,
+          points: state.points,
+          levelText: `المستوى ${lvl.level} (${lvl.title})`,
+          completedLessonsCount: state.completedLessons.length,
+          badgesCount: getUnlockedBadgesCount(state),
+          updatedAt: state.updatedAt
+        };
+        const idx = dir.findIndex(r => r.name === record.name && r.studentClass === record.studentClass);
+        if (idx >= 0) dir[idx] = record;
+        else dir.unshift(record);
+        localStorage.setItem(DIRECTORY_KEY, JSON.stringify(dir));
+        syncCloudSnapshot(record);
+      }
+
+      renderAllUI();
+    }
+
+    async function syncCloudSnapshot(record) {
+      const url = (localStorage.getItem(CLOUD_URL_KEY) || "").trim();
+      if (!url) return;
+      try {
+        await fetch(url, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(record)
+        });
+      } catch {
+        // Offline or unreachable cloud endpoint handled gracefully
+      }
+    }
+
+    function addPoints(delta, reason) {
+      state.points = Math.max(0, state.points + delta);
+      persistState();
+      if (delta > 0) {
+        showToast(`+${delta} نقطة! ${reason || ""}`);
+      }
+    }
+
+    function saveStudentProfile() {
+      const nameVal = document.getElementById("studentNameInput").value.trim();
+      const classVal = document.getElementById("studentClassInput").value;
+      if (!nameVal) {
+        showToast("يرجى كتابة اسم الطالبة أولاً");
+        return;
+      }
+      state.name = nameVal;
+      state.studentClass = classVal;
+      persistState();
+      showToast(`أهلاً بكِ يا ${state.name} في مملكة الرياضيات`);
+    }
+
+    function switchTab(tabName) {
+      document.querySelectorAll(".tab-panel").forEach(el => {
+        el.style.display = el.id === `tab-${tabName}` ? "block" : "none";
+      });
+      document.querySelectorAll(".nav-btn").forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.tab === tabName);
+      });
+      if (tabName === "curriculum") renderCurriculum();
+      if (tabName === "quiz" && quizQueue.length === 0) startQuizSession();
+      if (tabName === "games") renderGamesCatalog();
+      if (tabName === "badges") renderBadges();
+      if (tabName === "certificate") renderCertificate();
+      if (tabName === "teacher") refreshTeacherTable();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function renderAllUI() {
+      const lvl = getLevelInfo(state.points);
+      const totalItems = CHAPTERS.reduce((acc, c) => acc + c.items.length, 0);
+      const badgesCount = getUnlockedBadgesCount(state);
+
+      document.getElementById("headerStudentName").textContent = state.name;
+      document.getElementById("headerPoints").textContent = `${state.points} نقطة`;
+
+      if (document.getElementById("studentNameInput") && state.name !== "زائرة المملكة") {
+        document.getElementById("studentNameInput").value = state.name;
+      }
+      if (document.getElementById("studentClassInput")) {
+        document.getElementById("studentClassInput").value = state.studentClass;
+      }
+
+      document.getElementById("homePoints").textContent = state.points;
+      document.getElementById("homeLevel").textContent = `المستوى ${lvl.level}`;
+      document.getElementById("homeLevelTitle").textContent = lvl.title;
+      document.getElementById("homeCompletedLessons").textContent = `${state.completedLessons.length} / ${totalItems}`;
+      document.getElementById("homeBadgesCount").textContent = `${badgesCount} / ${BADGES.length}`;
+
+      renderBadges();
+      renderCertificate();
+    }
+
+    function renderCurriculum() {
+      const pillsEl = document.getElementById("chapterPills");
+      pillsEl.innerHTML = CHAPTERS.map(c => `
+        <button class="chapter-pill ${c.id === currentChapterId ? "active" : ""}" onclick="selectChapter(${c.id})">
+          ${c.name}
+        </button>
+      `).join("");
+
+      const chapter = CHAPTERS.find(c => c.id === currentChapterId) || CHAPTERS[0];
+      document.getElementById("activeChapterHeader").innerHTML = `
+        <div style="background:var(--purple-soft); padding:14px 18px; border-radius:16px;">
+          <div style="font-weight:900; color:var(--purple-dark); font-size:1.05rem;">${chapter.name}</div>
+          <div style="font-size:0.9rem; color:var(--text); margin-top:4px;">${chapter.intro}</div>
+        </div>
+      `;
+
+      const typeClassMap = {
+        prep: "type-prep",
+        lesson: "type-lesson",
+        lab: "type-lab",
+        test: "type-test"
+      };
+
+      document.getElementById("lessonsContainer").innerHTML = chapter.items.map(item => {
+        const done = state.completedLessons.includes(item.id);
+        return `
+          <div class="lesson-item">
+            <div>
+              <span class="lesson-type ${typeClassMap[item.type] || "type-lesson"}">${item.label}</span>
+              <div class="lesson-title">${item.title}</div>
+              <p class="lesson-summary">${item.desc}</p>
+            </div>
+            <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
+              <button class="btn ${done ? "btn-outline" : "btn-primary"} btn-sm" onclick="toggleLessonDone('${item.id}')">
+                ${done ? "✓ تم الإنجاز (+١٠)" : "إتمام الوحدة (+١٠ نقاط)"}
+              </button>
+              <button class="btn btn-turquoise btn-sm" onclick="practiceChapter(${chapter.id})">تدريب الفصل</button>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function selectChapter(id) {
+      currentChapterId = id;
+      renderCurriculum();
+    }
+
+    function toggleLessonDone(itemId) {
+      const idx = state.completedLessons.indexOf(itemId);
+      if (idx >= 0) {
+        state.completedLessons.splice(idx, 1);
+        addPoints(-10, "تم إلغاء إتمام الوحدة");
+      } else {
+        state.completedLessons.push(itemId);
+        addPoints(10, "إتمام وحدة دراسية");
+      }
+      renderCurriculum();
+    }
+
+    function practiceChapter(chId) {
+      document.getElementById("quizChapterFilter").value = String(chId);
+      switchTab("quiz");
+      startQuizSession();
+    }
+
+    function startQuizSession() {
+      const chVal = document.getElementById("quizChapterFilter").value;
+      const filtered = chVal === "all"
+        ? [...QUIZ_BANK]
+        : QUIZ_BANK.filter(item => String(item.ch) === chVal);
+
+      quizQueue = filtered.length ? filtered : [...QUIZ_BANK];
+      quizIndex = 0;
+      quizScore = 0;
+      renderQuizQuestion();
+    }
+
+    function renderQuizQuestion() {
+      const box = document.getElementById("quizBox");
+      const mode = document.getElementById("quizModeFilter").value;
+      const ptsPerQ = mode === "challenge" ? 25 : 15;
+
+      if (quizIndex >= quizQueue.length) {
+        box.innerHTML = `
+          <div style="text-align:center; padding:12px;">
+            <div style="font-size:2.2rem;">🏆</div>
+            <h3 style="font-size:1.35rem; font-weight:900; color:var(--purple-dark); margin:6px 0;">أحسنتِ! أنهيتِ جولة المسابقة</h3>
+            <p style="margin-bottom:14px;">أجبتِ إجابة صحيحة على <strong>${quizScore}</strong> من أصل <strong>${quizQueue.length}</strong> أسئلة.</p>
+            <button class="btn btn-primary" onclick="startQuizSession()">بدء جولة جديدة</button>
+          </div>
+        `;
+        return;
+      }
+
+      const item = quizQueue[quizIndex];
+      box.innerHTML = `
+        <div style="display:flex; justify-content:space-between; font-size:0.86rem; font-weight:800; color:var(--purple-dark); margin-bottom:8px;">
+          <span>السؤال ${quizIndex + 1} من ${quizQueue.length} (الفصل ${item.ch})</span>
+          <span>قيمة السؤال: +${ptsPerQ} نقطة</span>
+        </div>
+        <div style="font-size:1.12rem; font-weight:800; margin-bottom:8px;">${item.q}</div>
+        <div class="options-list" id="quizOptions">
+          ${item.opts.map((opt, idx) => `
+            <button class="option-btn" onclick="submitQuizAnswer(${idx}, ${ptsPerQ})">${opt}</button>
+          `).join("")}
+        </div>
+        <div id="quizFeedback"></div>
+      `;
+    }
+
+    function submitQuizAnswer(selectedIdx, ptsPerQ) {
+      const item = quizQueue[quizIndex];
+      const btns = document.querySelectorAll("#quizOptions .option-btn");
+      btns.forEach(b => b.disabled = true);
+
+      const fb = document.getElementById("quizFeedback");
+      if (selectedIdx === item.ans) {
+        btns[selectedIdx].classList.add("correct");
+        quizScore += 1;
+        addPoints(ptsPerQ, "إجابة صحيحة في المسابقة");
+        fb.innerHTML = `
+          <div class="feedback-banner feedback-ok">ممتازة! إجابة صحيحة. ${item.tip}</div>
+          <button class="btn btn-primary btn-sm" style="margin-top:10px;" onclick="nextQuizQuestion()">السؤال التالي</button>
+        `;
+      } else {
+        btns[selectedIdx].classList.add("wrong");
+        btns[item.ans].classList.add("correct");
+        fb.innerHTML = `
+          <div class="feedback-banner feedback-err">إجابة غير موفقة هذه المرة. التوضيح: ${item.tip}</div>
+          <button class="btn btn-primary btn-sm" style="margin-top:10px;" onclick="nextQuizQuestion()">السؤال التالي</button>
+        `;
+      }
+    }
+
+    function nextQuizQuestion() {
+      quizIndex += 1;
+      renderQuizQuestion();
+    }
+
+    function renderGamesCatalog() {
+      const grid = document.getElementById("gamesCatalog");
+      grid.innerHTML = GAMES_12.map(g => {
+        const played = state.completedGames.includes(g.id);
+        return `
+          <div class="lesson-item">
+            <div>
+              <span class="lesson-type ${played ? "type-lab" : "type-lesson"}">${played ? "مكتملة ✓" : g.topic}</span>
+              <div class="lesson-title">${g.title}</div>
+              <p class="lesson-summary">${g.prompt}</p>
+            </div>
+            <button class="btn btn-primary btn-sm" onclick="openGame('${g.id}')">تشغيل اللعبة (+٢٠ نقطة)</button>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function openGame(gameId) {
+      const g = GAMES_12.find(item => item.id === gameId);
+      if (!g) return;
+      const panel = document.getElementById("activeGamePanel");
+      panel.style.display = "block";
+      document.getElementById("activeGameTitle").textContent = g.title;
+      document.getElementById("activeGameBody").innerHTML = `
+        <p style="font-size:1.05rem; font-weight:800; margin-bottom:10px;">${g.prompt}</p>
+        <p style="font-size:0.86rem; color:var(--muted); margin-bottom:12px;">تلميح: ${g.hint}</p>
+        <div style="display:flex; gap:10px; flex-wrap:wrap; max-width:440px;">
+          <input type="text" id="gameAnswerInput" placeholder="اكتبي الإجابة الرقمية هنا..." />
+          <button class="btn btn-turquoise" onclick="checkGameAnswer('${g.id}')">تحقق</button>
+        </div>
+        <div id="gameResultBanner"></div>
+      `;
+      panel.scrollIntoView({ behavior: "smooth" });
+    }
+
+    function checkGameAnswer(gameId) {
+      const g = GAMES_12.find(item => item.id === gameId);
+      const val = (document.getElementById("gameAnswerInput").value || "").trim();
+      const normalized = val.replace(/[٠-٩]/g, d => "0123456789"["٠١٢٣٤٥٦٧٨٩".indexOf(d)]);
+      const res = document.getElementById("gameResultBanner");
+
+      if (normalized === g.answer) {
+        if (!state.completedGames.includes(g.id)) {
+          state.completedGames.push(g.id);
+          addPoints(20, `إتمام ${g.title}`);
+          renderGamesCatalog();
+        } else {
+          showToast("إجابة صحيحة! لقد حصلتِ سابقاً على نقاط هذه اللعبة");
+        }
+        res.innerHTML = `<div class="feedback-banner feedback-ok">رائعة! الإجابة (${g.answer}) صحيحة تماماً.</div>`;
+      } else {
+        res.innerHTML = `<div class="feedback-banner feedback-err">حاولي مرة أخرى مستعينة بالتلميح: ${g.hint}</div>`;
+      }
+    }
+
+    function closeGame() {
+      document.getElementById("activeGamePanel").style.display = "none";
+    }
+
+    function renderBadges() {
+      const lvl = getLevelInfo(state.points);
+      const pct = Math.min(100, Math.round((state.points % 100)));
+      document.getElementById("levelProgressLabel").textContent = `المستوى ${lvl.level}: ${lvl.title}`;
+      document.getElementById("levelPointsText").textContent = `رصيدكِ الحالي: ${state.points} نقطة`;
+      document.getElementById("levelProgressBar").style.width = `${pct}%`;
+
+      document.getElementById("badgesGrid").innerHTML = BADGES.map(b => {
+        const unlocked = (b.reqPts && state.points >= b.reqPts) ||
+          (b.reqLessons && state.completedLessons.length >= b.reqLessons);
+        return `
+          <div class="badge-card ${unlocked ? "unlocked" : "locked"}">
+            <div class="badge-icon">${b.icon}</div>
+            <div style="font-weight:900; color:var(--purple-dark);">${b.name}</div>
+            <div style="font-size:0.84rem; color:var(--muted); margin:6px 0;">${b.cond}</div>
+            <span class="lesson-type ${unlocked ? "type-lab" : "type-prep"}">${unlocked ? "مفتوح ✓" : "مغلق"}</span>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function renderCertificate() {
+      const lvl = getLevelInfo(state.points);
+      document.getElementById("certStudentName").textContent = state.name;
+      document.getElementById("certStudentClass").textContent = state.studentClass;
+      document.getElementById("certPoints").textContent = state.points;
+      document.getElementById("certLevel").textContent = `المستوى ${lvl.level} (${lvl.title})`;
+      document.getElementById("certDate").textContent = new Date().toLocaleDateString("ar-SA");
+    }
+
+    function loginTeacher() {
+      const pass = document.getElementById("teacherPassInput").value.trim();
+      if (pass === "3030") {
+        document.getElementById("teacherLoginBox").style.display = "none";
+        document.getElementById("teacherPanelContent").style.display = "block";
+        document.getElementById("cloudEndpointInput").value = localStorage.getItem(CLOUD_URL_KEY) || "";
+        refreshTeacherTable();
+      } else {
+        showToast("كلمة المرور غير صحيحة");
+      }
+    }
+
+    function logoutTeacher() {
+      document.getElementById("teacherPanelContent").style.display = "none";
+      document.getElementById("teacherLoginBox").style.display = "block";
+      document.getElementById("teacherPassInput").value = "";
+    }
+
+    function refreshTeacherTable() {
+      const dir = loadDirectory();
+      const tbody = document.getElementById("teacherStudentsBody");
+      document.getElementById("tTotalStudents").textContent = dir.length;
+
+      if (!dir.length) {
+        tbody.innerHTML = `<tr><td colspan="7" style="text-align:center; color:var(--muted);">لا توجد بيانات طالبات مسجلة بعد في هذا المتصفح.</td></tr>`;
+        document.getElementById("tAvgPoints").textContent = "0";
+        document.getElementById("tTopPoints").textContent = "0";
+        return;
+      }
+
+      const avg = Math.round(dir.reduce((s, r) => s + (Number(r.points) || 0), 0) / dir.length);
+      const top = Math.max(...dir.map(r => Number(r.points) || 0));
+      document.getElementById("tAvgPoints").textContent = avg;
+      document.getElementById("tTopPoints").textContent = top;
+
+      tbody.innerHTML = dir.map(r => `
+        <tr>
+          <td><strong>${escapeHtml(r.name)}</strong></td>
+          <td>${escapeHtml(r.studentClass)}</td>
+          <td><strong>${r.points}</strong></td>
+          <td>${escapeHtml(r.levelText || "")}</td>
+          <td>${r.completedLessonsCount || 0}</td>
+          <td>${r.badgesCount || 0}</td>
+          <td>${escapeHtml(r.updatedAt || "")}</td>
+        </tr>
+      `).join("");
+    }
+
+    function exportStudentsCSV() {
+      const dir = loadDirectory();
+      if (!dir.length) {
+        showToast("لا توجد بيانات لتصديرها");
+        return;
+      }
+      const headers = ["اسم الطالبة", "الصف", "النقاط", "المستوى", "الأنشطة المنجزة", "الأوسمة", "آخر تحديث"];
+      const rows = dir.map(r => [
+        r.name, r.studentClass, r.points, r.levelText, r.completedLessonsCount, r.badgesCount, r.updatedAt
+      ]);
+      const csvContent = "\uFEFF" + [headers, ...rows]
+        .map(row => row.map(cell => `"${String(cell ?? "").replace(/"/g, '""')}"`).join(","))
+        .join("\n");
+
+      const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = "مملكة_الرياضيات_سجل_الطالبات.csv";
+      link.click();
+      showToast("تم تصدير ملف CSV المتوافق مع Excel");
+    }
+
+    function saveCloudEndpoint() {
+      const url = document.getElementById("cloudEndpointInput").value.trim();
+      localStorage.setItem(CLOUD_URL_KEY, url);
+      document.getElementById("cloudStatusText").textContent = url
+        ? `تم حفظ رابط المزامنة السحابية: ${url}`
+        : "تم إزالة رابط المزامنة السحابية (العمل بالوضع المحلي الفوري).";
+      showToast("تم حفظ إعدادات المزامنة");
+    }
+
+    function escapeHtml(str) {
+      return String(str).replace(/[&<>"']/g, m => ({
+        "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;"
+      }[m]));
+    }
+
+    renderAllUI();
+  </script>
+</body>
+</html>
