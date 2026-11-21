@@ -1151,8 +1151,7 @@
     }
 
     async function syncCloudSnapshot(record) {
-      const url = (localStorage.getItem(CLOUD_URL_KEY) || "https://math-28-default-rtdb.firebaseio.com/math_kingdom.json
-").trim();
+      const url = (localStorage.getItem(CLOUD_URL_KEY) || "https://math-28-default-rtdb.firebaseio.com/math_kingdom.json").trim();
       if (!url) return;
       try {
         await fetch(url, {
